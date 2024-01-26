@@ -35,6 +35,7 @@
 
 .navbar-toggle{
   display: none;
+  padding: 0 1rem !important;
 }
 
 .navbar-link{
@@ -87,9 +88,9 @@
   }
 
   .navbar-link {
-    display: none;
     width: 100%;
     text-align: center;
+    display: none;
   }
 
   .navbar li {
