@@ -1,0 +1,154 @@
+@import "../../../styles.scss";
+@import "../../../colors.scss";
+
+body {
+    font-family: Inter, Arial, Arial, Helvetica, sans-serif;
+}
+
+.text--h1 {
+    // font-family: 'Poppins', sans-serif;
+    line-height: 6rem;
+    color: white;
+}
+
+.text--center {
+    text-align: left;
+}
+
+.text--black {
+    color: $color-text-black;
+}
+
+.text--purple {
+    color: $color-text-purple;
+}
+
+.text--white {
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.block {
+    --padding-vertical: 6rem;
+    padding: var(--padding-vertical) 2rem;
+}
+
+.block--dark {
+    background: #000;
+    // color: #7b858b;
+}
+
+.block--purple {
+    background: $color-text-purple;
+    // color: #7b858b;
+}
+
+.block--skewed-right {
+    padding-bottom: calc(var(--padding-vertical) + 2rem);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0 85%);
+}
+
+// .block--skewed-left::after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color:  $color-text-purple; // Replace with your color
+//     z-index: -1;
+// }
+
+.block--skewed-left {
+    padding-bottom: calc(var(--padding-vertical) + 2rem);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0 100%);
+    // position: relative;
+
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     background-color:  $color-text-purple; // Replace with your color
+    //     z-index: -1;
+    //   }
+}
+.block--skewed-top-right {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0 100%);
+}
+
+.block__heading {
+    margin-top: 0;
+}
+
+.block__tagline {
+    color: $color-text-purple;
+    letter-spacing: 0.4px;
+    margin: 2rem 0 2rem;
+    line-height: 28px;
+}
+
+.block__image {
+    width: 100%;
+    max-width: 430px;
+    max-height: 430px;
+}
+
+.image--relative {
+    position: relative;
+    top: -175px;
+}
+
+.div--center {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.div--gray-rounded {
+    background-color: #2d2d2d;
+    border-radius: 24px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.flex-item {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+}
+// .btn {
+//     width: 6.5vw;
+//     max-width: 25px;
+//     height: 2rem;
+//     margin-right: 1rem;
+//     vertical-align: middle;
+// }
+.btn {
+    width: 165px;
+    height: 2.5rem;
+    border-radius: 30px;
+}
+
+.btn--accent {
+    background: $color-text-purple;
+    color: white;
+}
+
+.btn--stretched {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
