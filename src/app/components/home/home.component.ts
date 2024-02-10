@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-
+  steps = [
+    { title: 'Step 1', description: 'Create an account' },
+    { title: 'Step 2', description: 'Search for your desired game in your area' },
+    { title: 'Step 3', description: 'Create an ad if you can\'t find it' }
+  ];
 }

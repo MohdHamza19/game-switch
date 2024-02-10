@@ -30,18 +30,6 @@
             </div>
         </header>
     </div>
-    <!-- <picture>
-            <source 
-            type="image/webp" 
-            srcset="images/banner.webp 1x, images/banner@2x.webp 2x"
-            />
-            <source 
-            type="image/png" 
-            srcset="images/banner.png 1x, images/banner@2x.png 2x"
-            />
-            <img class="hero__image" src="assets/images/first-image.png" alt="">
-        </picture> -->
-    <!-- </div> -->
 </section>
 <section class="block block--skewed-right hero">
     <div class="container">
@@ -64,53 +52,47 @@
         </header>
     </div>
 </section>
-<section class="block block--dark hero">
+<!-- <section class="block block--dark hero">
     <div class="container my-lg-5">
-        <div class="div--center div--gray-rounded py-lg-5">
-            <!-- <div class="row">
-                <div class="col-6">
-                    <div class="row px-5">
-                        <div class="col-12">
-                            <div class="text--h2 text--white">Step</div>
-                            <p class="text--white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="div--center div--gray-rounded pt-lg-1 pb-lg-3">
+            <div class="flex-container text--white">
+                <div class="column justify-content-center">
+                    <div class="row">
+                        <div class="text--h3 fw-500">
+                            Step 1
                         </div>
-                        <div class="col-12">
-                            <div class="text--h2 text--white">Step</div>
-                            <p class="text--white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="mt-2 mb-4 pl-4">
+                            Create an account
+                        </p>
+                        <hr>
+                    </div>
+                    <div class="row">
+                        <div class="text--h3 fw-500">
+                            Step 2
                         </div>
-                        <div class="col-12">
-                            <div class="text--h2 text--white">Step</div>
-                            <p class="text--white">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="mt-2 mb-4 pl-4">
+                            Search for your desired game in your area
+                        </p>
+                        <hr>
+                    </div><div class="row">
+                        <div class="text--h3 fw-500">
+                            Step 3
                         </div>
+                        <p class="mt-2 mb-4 pl-4">
+                            Create an ad if you can't find it
+                        </p>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div>
-                        <div>
-                            <picture>
-                                <img class="block__image" src="assets/images/easy-exchange.png" alt="">
-                            </picture>
-                        </div>
-                        <div>
-                            <div class="text--h2 text--white">
-                                How to trade your games in 3 easy steps
-                            </div>
-                        </div>
+                <div class="column">
+                    <div class="row">
+                        <picture class="img-parent">
+                            <img class="block__image img-abs" src="assets/images/easy-exchange.png" alt="">
+                        </picture>
                     </div>
-                </div>
-            </div> -->
-
-            <div class="flex-container">
-                <div class="flex-column">
-                    <div class="flex-item">1</div>
-                    <div class="flex-item">2</div>
-                    <div class="flex-item">3</div>
-                </div>
-                <div class="flex-column">
-                    <div class="flex-item">4</div>
-                    <div class="flex-item">5</div>
+                    <div class="row img-padding text--h3 px-4 mx-4 fw-600">How to trade your games in 3 easy steps</div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</section> -->
+<widget-hero [steps]="steps"></widget-hero>

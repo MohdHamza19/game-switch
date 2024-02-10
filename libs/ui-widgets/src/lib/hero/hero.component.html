@@ -1,0 +1,27 @@
+<section class="block block--dark hero">
+    <div class="container my-lg-5">
+        <div class="div--center div--gray-rounded pt-lg-1 pb-lg-3">
+            <div class="flex-container text--white">
+                <div class="column justify-content-center">
+                    <div class="row" *ngFor="let step of steps">
+                        <div class="text--h3 fw-500">
+                            {{step.title}}
+                        </div>
+                        <p class="mt-2 mb-4 pl-4">
+                            {{step.description}}
+                        </p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="row">
+                        <picture class="img-parent">
+                            <img class="block__image img-abs" src="assets/images/easy-exchange.png" alt="">
+                        </picture>
+                    </div>
+                    <div class="row img-padding text--h3 px-4 mx-4 fw-600">How to trade your games in 3 easy steps</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

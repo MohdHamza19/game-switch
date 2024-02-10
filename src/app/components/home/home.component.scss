@@ -66,19 +66,8 @@ body {
 .block--skewed-left {
     padding-bottom: calc(var(--padding-vertical) + 2rem);
     clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 0 100%);
-    // position: relative;
-
-    // &::after {
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     height: 100%;
-    //     background-color:  $color-text-purple; // Replace with your color
-    //     z-index: -1;
-    //   }
 }
+
 .block--skewed-top-right {
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0 100%);
 }
@@ -96,8 +85,8 @@ body {
 
 .block__image {
     width: 100%;
-    max-width: 430px;
-    max-height: 430px;
+    max-width: 400px;
+    max-height: 400px;
 }
 
 .image--relative {
@@ -115,22 +104,22 @@ body {
     border-radius: 24px;
 }
 
-.flex-container {
-    display: flex;
-}
+// .flex-container {
+//     display: flex;
+// }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-}
+// .flex-column {
+//     display: flex;
+//     flex-direction: column;
+//     flex: 1;
+// }
 
-.flex-item {
-    border: 1px solid black;
-    padding: 20px;
-    margin: 10px;
-}
-// .btn {
+// .flex-item {
+//     border: 1px solid black;
+//     padding: 20px;
+//     margin: 10px;
+// }
+// // .btn {
 //     width: 6.5vw;
 //     max-width: 25px;
 //     height: 2rem;
@@ -151,4 +140,43 @@ body {
 .btn--stretched {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+}
+
+
+// .img-abs {
+//     position: absolute;
+//     top: -235px;
+//     left: 0;
+// }
+
+// .img-padding {
+//     padding-top: 185px !important;
+// }
+
+// .img-parent{
+//     position: relative;
+// }
+
+/* CSS */
+.flex-container {
+    display: flex;
+    height: 100%;
+    /* Ensure the container takes full height */
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.row {
+    // border: 1px solid black;
+    padding: 20px;
+    margin: 5px;
+}
+
+.column:last-child .row:last-child {
+    flex-grow: 1;
+    /* Make the last row in the last column grow */
 }
