@@ -1,0 +1,81 @@
+<div class="popup d-flex gradient-background" #modal>
+  <div class="d-flex flex-direction-column pt-3 pb-4 px-4 justify-content-even position-relative">
+    <h6 type="button" class="close position-absolute top-n10 end-n6" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true" class="span-font-size">&times;</span>
+    </h6>
+    <img src="assets/images/GameSwitch-cropped.svg" class="responsive-logo-image" alt="GameSwitch Logo">
+    <h4 class="align-self-fstart fw-300 mt-3">
+      {{isLogin ? 'Login to your GameSwitch account': 'Create your GameSwitch account'}}
+    </h4>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="d-flex flex-direction-column">
+      <div *ngIf="isLogin; else signUp">
+        <div class="form-group">
+          <label class="label-width">
+            <p class="mb-1 align-text-left">
+              Email:
+            </p>
+            <input type="email" formControlName="email"
+              class="form-control bg-dark text-light border-dark input-default">
+          </label>
+        </div>
+        <div class="form-group">
+          <label class="label-width">
+            <p class="mb-1 align-text-left">
+              Password:
+            </p>
+            <input type="password" formControlName="password"
+              class="form-control bg-dark text-light border-dark input-default">
+          </label>
+        </div>
+      </div>
+      <ng-template #signUp>
+        <div class="form-group" *ngIf="showPhoneNumber">
+          <label class="label-width">
+            <p class="mb-1 align-text-left">
+              Phone Number:
+            </p>
+            <div class="d-flex">
+              <span class="d-flex span-india-code px-1 align-items-center">+91</span><input type="text"
+                formControlName="phoneNumber" class="form-control bg-dark text-light border-dark input-number">
+            </div>
+
+            <br/>
+            <div class="d-flex px-4 mx-3" *ngIf="showOtp">
+              <span class="d-flex span-india-code px-2 align-items-center">OTP</span><input type="text"
+                formControlName="otp" class="form-control bg-dark text-light border-dark input-number">
+            </div>
+          </label>
+        </div>
+      </ng-template>
+      <ng-container *ngIf="!showPhoneNumber">
+        <span class="form-group" @slideIn>
+          <label class="label-width">
+            <p class="mb-1 align-text-left">
+              First Name:
+            </p>
+            <div class="d-flex">
+              <input type="text" formControlName="fName"
+                class="form-control bg-dark text-light border-dark input-default">
+            </div>
+            <p class="mb-1 align-text-left">
+              Last Name:
+            </p>
+            <div class="d-flex">
+              <input type="text" formControlName="lName"
+                class="form-control bg-dark text-light border-dark input-default">
+            </div>
+            <p class="mb-1 align-text-left">
+              Email:
+            </p>
+            <div class="d-flex">
+              <input type="email" formControlName="email"
+                class="form-control bg-dark text-light border-dark input-default">
+            </div>
+          </label>
+        </span>
+      </ng-container>
+      <button type="submit" class="submit-btn">{{isLogin ? 'Login': (showPhoneNumber ? (!showOtp ? 'Send OTP' : 'Continue') : 'Register')}}</button>
+    </form>
+  </div>
+</div>
+<div #overlay></div>

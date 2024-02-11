@@ -1,3 +1,5 @@
+@import '../../../../../src/colors.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -42,14 +44,6 @@
   text-align: center;
 }
 
-// .navbar-link:hover{
-//   background-color: purple;
-// }
-
-// .navbar-link:hover a{
-//   color: black;
-// }
-
 .navbar-link a {
   position: relative;
   text-decoration: none;
@@ -63,7 +57,7 @@
   height: 3.5px;
   bottom: -4px;
   left: 0;
-  background-color: #760AEC;
+  background-color: $color-purple;
   transform: scaleY(0);
   transition: transform 0.2s ease-in-out;
   transform-origin: 50% 100%;

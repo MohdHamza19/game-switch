@@ -11,8 +11,28 @@
     justify-content: center;
 }
 
+.justify-content-even {
+    justify-content: space-evenly;
+}
+
+.align-self-fstart{
+    align-self: flex-start;
+}
+
+.flex-direction-column{
+    flex-direction: column;
+}
+
+.align-text-left{
+    text-align: left;
+}
+
 .text--h3{
     line-height: 30px;
+}
+
+.fw-300{
+    font-weight: 300 !important;
 }
 
 .fw-400{

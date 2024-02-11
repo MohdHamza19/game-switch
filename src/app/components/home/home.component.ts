@@ -1,4 +1,3 @@
-import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component } from '@angular/core';
 
 @Component({
@@ -12,4 +11,13 @@ export class HomeComponent {
     { title: 'Step 2', description: 'Search for your desired game in your area' },
     { title: 'Step 3', description: 'Create an ad if you can\'t find it' }
   ];
+  showModal: boolean = false;
+  
+  openModal() {
+    this.showModal = true;
+  }
+  closeModal() {
+    this.showModal = false;
+  }
+
 }
