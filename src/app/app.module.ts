@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiWidgetsModule } from '../../libs/ui-widgets/src/lib/ui-widgets.module';
 import { HomeComponent } from './components/home/home.component';
+import { AdvertsComponent } from './components/adverts/adverts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    AdvertsComponent,
   ],
   imports: [
     BrowserModule,

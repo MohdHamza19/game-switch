@@ -1,4 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@import './colors.scss';
+
+$header-height: 58.1px;
+
 .align-items-center {
     align-items: center;
 }
@@ -15,8 +18,24 @@
     justify-content: space-evenly;
 }
 
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-self-center{
+    align-self: center;
+}
+
 .align-self-fstart{
     align-self: flex-start;
+}
+
+.flex-grow-0{
+    flex-grow: 0;
+}
+
+.flex-grow-1{
+    flex-grow: 1;
 }
 
 .flex-direction-column{
@@ -25,6 +44,14 @@
 
 .align-text-left{
     text-align: left;
+}
+
+.text--purple{
+    color: $color-purple;
+}
+
+.text--white {
+    color: white;
 }
 
 .text--h3{
@@ -82,8 +109,9 @@
 // For large screens
 @media (min-width: 1024px) {
     .text--h1 {
-        font-size: 6rem;
+        font-size: 5rem;
         font-weight: 600;
+        line-height: 5rem;
     }
 
     .text--h2 {

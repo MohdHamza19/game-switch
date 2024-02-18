@@ -1,9 +1,10 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Component, ElementRef, EventEmitter, Input, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { LoginService } from '../../services/login.service';
 
 @Component({
-  selector: 'widget-login',
+  selector: 'widget-login-modal',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   animations: [
@@ -24,8 +25,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent {
   @ViewChild('modal') modal!: ElementRef;
   @ViewChild('overlay') overlay!: ElementRef;
-  @Input() showModal: boolean = false;
-  @Input() isLogin: boolean = false;
+  showModal: boolean = false;
+  @Input() isLogin: boolean = true;
   @Output() modalClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   showPhoneNumber = true;
@@ -39,46 +40,70 @@ export class LoginComponent {
   });
   showOtp: boolean = false;
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (!changes['showModal'].firstChange && changes['showModal']) {
-      if (changes['showModal'].currentValue === true) {
+  constructor(
+    private loginService: LoginService
+  ) { }
+
+  ngOnInit(){
+    this.loginService.loginModalState$.subscribe((state) => {
+      if(state){
         this.openModal();
-      } else {
-        this.modal.nativeElement.classList.remove('popup-open');
       }
-    }
+    });
   }
 
+  // ngOnChanges(changes: SimpleChanges) {
+  //   if (!changes['showModal'].firstChange && changes['showModal']) {
+  //     if (changes['showModal'].currentValue === true) {
+  //       this.openModal();
+  //     } else {
+  //       this.modal.nativeElement.classList.remove('popup-open');
+  //     }
+  //   }
+  // }
+
   onSubmit() {
-    // this.showPhoneNumber ? this.showPhoneNumber = false : this.closeModal();
-    if(this.showPhoneNumber && this.showOtp){
-      this.showPhoneNumber = false;
-      this.showOtp = false;
-      return;
-    }
-    if (this.showPhoneNumber) {
-      // this.showPhoneNumber = false;
-      this.showOtp = true;
-      return;
-    }
-    if(!this.showPhoneNumber && this.showOtp){
+    if(!this.isLogin){
+      if(this.showPhoneNumber && this.showOtp){
+        this.showPhoneNumber = false;
+        this.showOtp = false;
+        return;
+      }
+      if (this.showPhoneNumber) {
+        this.showOtp = true;
+        return;
+      }
+      if(!this.showPhoneNumber && this.showOtp){
+        this.closeModal();
+        return;
+      }
       this.closeModal();
-      return;
+    } else {
+      this.loginService.loginUser();
+      this.closeModal();
     }
-    this.closeModal();
   }
 
   closeModal() {
     this.modalClose.emit(false);
+    this.isLogin = true;
     this.showPhoneNumber = true;
     this.showOtp = false;
+    this.showModal = false;
     this.overlay.nativeElement.classList.remove('show-overlay');
+    this.modal.nativeElement.classList.remove('popup-open');
     document.body.style.overflow = 'auto';
   }
 
   openModal() {
+    this.showModal = true;
     this.modal.nativeElement.classList.add('popup-open');
     this.overlay.nativeElement.classList.add('show-overlay');
     document.body.style.overflow = 'hidden';
+  }
+
+  showLogin(){
+    this.isLogin = false;
+    console.log('here');
   }
 }

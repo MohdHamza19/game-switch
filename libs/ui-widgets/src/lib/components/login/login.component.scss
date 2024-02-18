@@ -1,19 +1,18 @@
-@import '../../../../../src/colors.scss';
-@import '../../../../../src/styles.scss';
+@import '../../../../../../src/colors.scss';
+@import '../../../../../../src/styles.scss';
 
 .popup {
     min-width: 300px;
     max-width: 500px;
     min-height: 500px;
     background: $color-light-gray;
+    border: 1px solid grey;
     border-radius: 24px;
     position: fixed;
     overflow: hidden;
-    // top: 0;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.5);
     text-align: center;
-    // padding: 0 30px 30px;
     color: white;
     visibility: hidden;
     transition: transform 0.4s, top 0.4s;
@@ -93,7 +92,7 @@
     border-radius: 50%;
 }
 
-.span-india-code{
+.span-india-code {
     background-color: $color-purple;
     height: 37.6px;
     align-self: center;
@@ -103,11 +102,11 @@
     border-bottom-left-radius: 5px;
 }
 
-.input-default{
+.input-default {
     box-shadow: none !important;
 }
 
-.input-number{
+.input-number {
     border-radius: 0px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -116,4 +115,15 @@
 
 .gradient-background {
     background: linear-gradient(to bottom left, $color-light-gray 80%, $color-purple 130%);
+}
+
+.create-account:hover {
+    text-decoration: underline;
+} 
+
+.create-account {
+    color: $color-purple;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
 }

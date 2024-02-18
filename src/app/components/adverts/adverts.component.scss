@@ -1,0 +1,132 @@
+@import '../../../../src/colors.scss';
+@import '../../../../src/styles.scss';
+
+.row-height {
+    height: calc(100vh - $header-height);
+}
+
+.block--light-gray {
+    background: $color-light-gray;
+}
+
+.block--dark {
+    background: #000;
+}
+
+.input-search {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: none !important;
+}
+
+.input-search::placeholder {
+    color: white;
+}
+
+.span-search-icon {
+    background-color: #212529;
+    height: 37.6px;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.location__dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.platform__dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search__platform,
+.search__location {
+    select {
+        background: $color-purple;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        // max-height: 39px;
+    }
+}
+
+.search__platform,
+.search__location {
+    option {
+        background: $color-light-gray;
+        color: white;
+    }
+}
+
+.search__btn {
+    background-color: $color-purple;
+    color: white;
+    padding: 8px 1.5rem !important;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    // margin-right: 18px;
+    text-align: center;
+}
+
+.search__btn:hover {
+    background-color: rgb(33, 37, 41);;
+}
+
+.custom-select {
+    place-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 160px;
+
+    i {
+        font-size: 1.2rem;
+    }
+
+    option{
+        background-color: rgb(33, 37, 41);
+        outline: none;
+    }
+
+    >select {
+        width: 100%;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+        padding: 0.6rem 1rem 0.6rem 1rem;
+        background-color: $color-purple;
+        color: white;
+        border-radius: 8px;
+        border: 0;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+.rotate {
+    i {transform: rotateX(180deg);}
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(33, 37, 41);
+    height: 100%;
+    width: 2rem;
+    border-radius: 0 8px 8px 0;
+    pointer-events: none;
+    i {transition: transform 0.2s ease-in-out;}
+}

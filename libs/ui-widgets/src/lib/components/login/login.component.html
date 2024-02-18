@@ -75,6 +75,10 @@
         </span>
       </ng-container>
       <button type="submit" class="submit-btn">{{isLogin ? 'Login': (showPhoneNumber ? (!showOtp ? 'Send OTP' : 'Continue') : 'Register')}}</button>
+      <div *ngIf="isLogin" class="mt-3">
+        <div>OR</div>
+        <h5 (click)="showLogin()" class="create-account mt-2">Create an account</h5>
+      </div>
     </form>
   </div>
 </div>

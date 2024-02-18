@@ -1,4 +1,4 @@
-@import '../../../../../src/colors.scss';
+@import '../../../../../../src/colors.scss';
 
 * {
   margin: 0;
@@ -69,6 +69,26 @@
 
 .bi-list {
   font-size: 1.5rem;
+}
+
+.login-btn{
+  background-color: $color-purple;
+  color: white;
+  padding: 5px 1.5rem !important;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 18px;
+}
+
+@media (max-width: 374px){
+  .login-btn{
+    margin-right: 8px;
+  }
+  .navbar-logo{
+    max-width: 224px !important;
+    padding-left: 8px !important;
+  }
 }
 
 @media (max-width: 600px){

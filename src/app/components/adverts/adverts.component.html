@@ -1,0 +1,47 @@
+<div class="row text--white m-0 search row-height">
+    <section class="col-3 block--light-gray search">
+        <div class="px-3 my-3">
+            <h5 class="search__title">
+                Find your <span class="text--purple">next</span> game
+            </h5>
+            <p class="fw-500 mb-2">Title</p>
+            <div class="d-flex">
+                <span class="d-flex px-3 align-items-center span-search-icon">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" placeholder="Enter game title" class="form-control bg-dark text-light border-dark input-search">
+            </div>
+            <div class="platform__dropdown mt-2">
+                <span class="fw-500">Platform</span>
+                <div class="custom-select" #arrow>
+                    <select id="platform" name="platform">
+                        <option value="any">All</option>
+                        <option value="ps4">PlayStation</option>
+                        <option value="xbox">Xbox</option>
+                    </select>
+                    <span class="custom-arrow">
+                        <i class="bi bi-chevron-compact-down"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="location__dropdown mt-2">
+                <span class="fw-500">Location</span>
+                <div class="custom-select" #arrow>
+                    <select id="location" name="location">
+                        <option value="any">Any</option>
+                        <option value="xbox">Bangalore</option>
+                        <option value="ps4">Hyderabad</option>
+                    </select>
+                    <span class="custom-arrow">
+                        <i class="bi bi-chevron-compact-down" ></i>
+                    </span>
+                </div>
+            </div>
+            <div class="search__btn align-self-center mt-3">Search</div>
+        </div>
+    </section>
+    <section class="col-9 block--dark results">
+        <widget-advert-card></widget-advert-card>
+    </section>
+</div>
+<widget-login-modal></widget-login-modal>

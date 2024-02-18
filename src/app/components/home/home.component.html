@@ -9,7 +9,7 @@
         <header>
             <div class="row align-items-center">
                 <div class="col-12 col-md-6">
-                    <div class="block__header text--h1 text--center">
+                    <div class="block__header text--h1 text--white text--center">
                         The best way to exchange your games.
                     </div>
                     <p class="block__tagline text--h3">Find and exchange games with other gamers!</p>
@@ -51,7 +51,7 @@
             </div>
         </header>
     </div>
-    <button (click)="openModal()">Button</button>
+    <!-- <button (click)="openModal()">Button</button> -->
 </section>
 <!-- <section class="block block--dark hero">
     <div class="container my-lg-5">
@@ -97,4 +97,4 @@
     </div>
 </section> -->
 <widget-hero [steps]="steps"></widget-hero>
-<widget-login [showModal]="showModal" (modalClose)="closeModal()"></widget-login>
+<widget-login-modal (modalClose)="closeModal()"></widget-login-modal>

@@ -17,7 +17,7 @@
   </nav> -->
 
 <nav class="navbar">
-    <ul>
+    <ul *ngIf="isLoggedIn; else showLogin">
         <li class="navbar-logo">
             <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
         </li>
@@ -32,4 +32,12 @@
             <a href="#">Post</a>
         </li>
     </ul>
+    <ng-template #showLogin>
+      <ul class="justify-content-space-between">
+        <li class="navbar-logo">
+          <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
+      </li>
+        <li class="login-btn align-self-center py-1 flex-grow-0" (click)="login()">Login</li>
+      </ul>
+    </ng-template>
 </nav>
