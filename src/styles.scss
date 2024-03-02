@@ -10,6 +10,21 @@ $header-height: 58.1px;
     display: flex;
 }
 
+.d-flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text--smaller {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.block--dark {
+    background: #000;
+}
+
 .justify-content-center {
     justify-content: center;
 }
