@@ -7,18 +7,24 @@ import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdvertCardComponent } from './components/advert-card/advert-card.component';
+import { AdvertCarouselComponent } from './components/advert-carousel/advert-carousel.component';
+import { RouterModule, Routes } from '@angular/router';
 
-
+const routes: Routes = [
+  { path: 'ad', component: LoginComponent },
+  // add more routes as needed
+];
 
 @NgModule({
-  declarations: [HeaderComponent, HeroComponent, LoginComponent, AdvertCardComponent],
+  declarations: [HeaderComponent, HeroComponent, LoginComponent, AdvertCardComponent, AdvertCarouselComponent],
   imports: [
     CommonModule,
     BrowserModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [HeaderComponent, HeroComponent, LoginComponent, AdvertCardComponent, ReactiveFormsModule]
+  exports: [HeaderComponent, HeroComponent, LoginComponent, AdvertCardComponent, AdvertCarouselComponent, ReactiveFormsModule]
 })
 export class UiWidgetsModule { }

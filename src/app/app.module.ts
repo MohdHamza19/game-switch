@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { UiWidgetsModule } from '../../libs/ui-widgets/src/lib/ui-widgets.module';
 import { HomeComponent } from './components/home/home.component';
 import { AdvertsComponent } from './components/adverts/adverts.component';
+import { AdvertPageComponent } from './components/advert-page/advert-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AdvertsComponent,
+    AdvertPageComponent,
   ],
   imports: [
     BrowserModule,

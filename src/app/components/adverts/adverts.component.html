@@ -40,8 +40,8 @@
             <div class="search__btn align-self-center mt-3">Search</div>
         </div>
     </section>
-    <section class="col-9 block--dark results">
-        <widget-advert-card></widget-advert-card>
+    <section class="col-9 block--dark results" *ngIf="cards">
+        <widget-advert-card [cards]="cards" (idEmitter)="viewAdvert($event)"></widget-advert-card>
     </section>
 </div>
 <widget-login-modal></widget-login-modal>

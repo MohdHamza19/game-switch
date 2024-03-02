@@ -1,0 +1,5 @@
+<div class="carousel" (touchstart)="touchStart($event)" (touchend)="touchEnd($event)">
+    <img [src]="images[currentImageIndex]" class="carousel-image" [class.fade]="fade">
+    <button (click)="previousImage()"><i class="bi bi-chevron-left" style="color: white;"></i></button>
+    <button (click)="nextImage()"><i class="bi bi-chevron-right" style="color: white;"></i></button>
+</div>
