@@ -1,4 +1,5 @@
 package com.gameswitch.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,8 +22,10 @@ public class User {
   private String lastName;
 
   @Column(name = "email", nullable = false, length = 50)
+  @JsonIgnore
   private String email;
 
   @Column(name = "phone", nullable = false, length = 10)
+  @JsonIgnore
   private long phone;
 }

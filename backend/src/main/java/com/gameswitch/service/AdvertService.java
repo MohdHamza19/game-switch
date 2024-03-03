@@ -20,4 +20,8 @@ public class AdvertService {
   public List<AdvertAllDto> getAllAdvertsDto() {
     return advertRepository.findAllAdvertsDto();
   }
+
+  public Advert getAdvertById(int id) {
+    return advertRepository.findById(id).orElse(null);
+  }
 }
