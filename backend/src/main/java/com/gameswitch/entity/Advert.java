@@ -40,6 +40,10 @@ public class Advert {
   private Condition condition;
 
   @Enumerated(EnumType.STRING)
+  @Column(name = "open_to_sale", nullable = false)
+  private Sale openToSale;
+
+  @Enumerated(EnumType.STRING)
   @Column(name = "includes_box", nullable = false)
   private BoxInclude includesBox;
 
@@ -58,6 +62,10 @@ public class Advert {
     Working,
     Good,
     Excellent
+  }
+  public enum Sale {
+    Yes,
+    No
   }
 
   public enum BoxInclude {
