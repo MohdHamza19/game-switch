@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -22,7 +23,9 @@
     "paths": {
       "ui-widgets": [
         "./dist/ui-widgets"
-      ]
+      ],
+      "@ui-widgets/*": ["libs/ui-widgets/src/*"],
+      "@ui-widgets/services": ["libs/ui-widgets/src/lib/services/public-api"],
     },
     "lib": [
       "ES2022",

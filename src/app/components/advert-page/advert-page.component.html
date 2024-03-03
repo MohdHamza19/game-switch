@@ -7,44 +7,55 @@
                         <widget-advert-carousel></widget-advert-carousel>
                     </section>
                     <section class="block__details mt-3">
-                        <h5 class="m-2 mb-3 mb-0 block__title">
+                        <h3 class="m-0 p-2">
+                            {{card.title}} (Pre-owned)
+                        </h3>
+                        <h6 class="m-2 mb-3 mb-0 mt-0 block__title">
                             Details
-                        </h5>
+                        </h6>
                         <div class="pb-2">
                             <div class="row">
-                                <div class="col-3">
-                                    <p class="text--smaller">Platform</p>
+                                <div class="col-2">
+                                    <p class="text--light pl-1">Platform</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">PlayStation</p>
+                                <div class="col-4">
+                                    <p class="text--smaller">{{card.platform}}</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Includes box</p>
+                                <div class="col-2">
+                                    <p class="text--light pl-1">Includes box</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Yes</p>
+                                <div class="col-4">
+                                    <p class="text--smaller">{{card.includesBox}}</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Open to sale</p>
+                                <div class="col-2">
+                                    <p class="text--light pl-1">Open to sale</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Yes</p>
+                                <div class="col-4">
+                                    <p class="text--smaller">{{card.openToSale}}</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Playable on</p>
+                                <div class="col-2">
+                                    <p class="text--light pl-1">Playable on</p>
                                 </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">PS4, PS5</p>
+                                <div class="col-4">
+                                    <p class="text--smaller">{{card.playableOn}}</p>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+                    <section class="block__details mt-3 p-2">
+                        <h6 class="mb-3 mb-0 mt-0 block__title">
+                            Description
+                        </h6>
+                        <div class="pb-2">
+                            {{card.description}}
                         </div>
                     </section>
                 </div>
                 <div class="col-3">
                     <div class="block__info p-2">
-                        <h5 class="m-2 mb-3 mb-0 mt-0 block__title">
+                        <h6 class="m-2 mb-3 mb-0 mt-0 block__title">
                             Posted By
-                        </h5>
+                        </h6>
                         <br>
                         <div class="block__user">
                             <i class="bi bi-person icon-size"></i> User9876
@@ -59,29 +70,11 @@
                     </div>
                     <div class="block__info p-2 mt-3">
                         <h6 class="block__data">
-                            <i class="bi bi-map icon-size"></i> HSR layout • <i
-                                class="bi bi-geo-alt-fill icon-size"></i> Bangalore
+                            <i class="bi bi-map icon-size"></i> HSR layout • <i class="bi bi-geo-alt-fill icon-size"></i> Bangalore
                         </h6>
-                        <div class="block__data text-smaller">
+                        <div class="block__data">
                             <i class="bi bi-calendar-event"></i><span class="text--smaller">21/02/2024</span>
                         </div>
-                        <!-- <i class="bi bi-person icon-size"></i> User9876 -->
-                        <!-- <div class="">
-                            <div class="row">
-                                <div class="col-3">
-                                    <p class="text--smaller">Price</p>
-                                </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">€ 50</p>
-                                </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Negotiable</p>
-                                </div>
-                                <div class="col-3">
-                                    <p class="text--smaller">Yes</p>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
 

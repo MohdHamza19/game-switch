@@ -7,6 +7,7 @@ import { UiWidgetsModule } from '../../libs/ui-widgets/src/lib/ui-widgets.module
 import { HomeComponent } from './components/home/home.component';
 import { AdvertsComponent } from './components/adverts/adverts.component';
 import { AdvertPageComponent } from './components/advert-page/advert-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AdvertPageComponent } from './components/advert-page/advert-page.compon
     BrowserModule,
     AppRoutingModule,
     UiWidgetsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

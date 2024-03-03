@@ -13,7 +13,7 @@
     background: #000;
 }
 
-.input-search {
+.input--search {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 5px;
@@ -21,12 +21,12 @@
     box-shadow: none !important;
 }
 
-.input-search::placeholder {
+.input--search::placeholder {
     color: white;
 }
 
 .span-search-icon {
-    background-color: #212529;
+    background-color: $color-purple;
     height: 37.6px;
     align-self: center;
     display: flex;
@@ -80,7 +80,8 @@
 }
 
 .search__btn:hover {
-    background-color: rgb(33, 37, 41);;
+    background-color: rgb(33, 37, 41);
+    ;
 }
 
 .custom-select {
@@ -93,7 +94,7 @@
         font-size: 1.2rem;
     }
 
-    option{
+    option {
         background-color: rgb(33, 37, 41);
         outline: none;
     }
@@ -113,7 +114,9 @@
 }
 
 .rotate {
-    i {transform: rotateX(180deg);}
+    i {
+        transform: rotateX(180deg);
+    }
 }
 
 .custom-arrow {
@@ -128,5 +131,78 @@
     width: 2rem;
     border-radius: 0 8px 8px 0;
     pointer-events: none;
-    i {transition: transform 0.2s ease-in-out;}
+
+    i {
+        transition: transform 0.2s ease-in-out;
+    }
 }
+
+.input--wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.input--suggestions {
+    visibility: hidden;
+    z-index: 99;
+
+    position: absolute;
+    top: 37px;
+    padding-top: 9px;
+    padding-left: 13px;
+    left: 0px;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 0.9rem;
+    width: 100%;
+    min-height: 38px;
+    background-color: rgb(33, 37, 41);
+    border-radius: 0 0 8px 8px;
+
+    >img {
+        max-width: 40px;
+        margin-left: -8px;
+        margin-top: -4px;
+    }
+}
+
+.list--pointer {
+    .input--suggestions {
+        cursor: pointer;
+    }
+
+    // .input--suggestions:hover{
+    //     background-color: $color-light-gray;
+    // }
+}
+
+.search__box {
+    position: relative;
+
+    .input--suggestions {
+        visibility: visible;
+    }
+
+    >.input--search {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+// .search__box::after{
+//     content: "Enter at least 3 characters";
+//     cursor: pointer;
+//     position: absolute;
+//     bottom: -38px;
+//     padding-top: 9px;
+//     padding-left: 13px;
+//     left: 0px;
+//     font-weight: 300;
+//     font-style: italic;
+//     font-size: 0.9rem;
+//     width: 100%;
+//     min-height: 38px;
+//     background-color: rgb(33, 37, 41);
+//     border-radius: 0 0 8px 8px;
+//     z-index: 99;
+// }
