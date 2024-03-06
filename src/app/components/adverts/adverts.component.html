@@ -2,14 +2,26 @@
     <section class="col-3 block--light-gray search">
         <div class="px-3 my-3">
             <h5 class="search__title">
-                Find your <span class="text--purple">next</span> game
+                Find your <span class="text--purple">next</span> game {{loadingGames}} --REMOVE
             </h5>
             <p class="fw-500 mb-2">Title</p>
             <div class="d-flex">
                 <span class="d-flex px-3 align-items-center span-search-icon">
                     <i class="bi bi-search"></i>
                 </span>
-                <input type="text" placeholder="Enter game title" class="form-control bg-dark text-light border-dark input-search">
+                <div class="input--wrapper" #searchInput>
+                    <input type="text" (focus)="onInputFocus($event)" (input)="onInputFocus($event)" (blur)="onInputBlur()" placeholder="Search games" class="form-control bg-dark text-light border-dark input--search">
+                    <span class="input--suggestions">
+                        <div *ngIf="!loadingGames;else loadAnimation">
+                            <div *ngFor="let game of games">
+                                <p class="mb-2">{{ game.title }}</p>
+                            </div>
+                        </div>
+                        <ng-template #loadAnimation>
+                            <img src="assets/gifs/loading-animation.gif" alt="Loading...">
+                        </ng-template>
+                    </span>
+                </div>
             </div>
             <div class="platform__dropdown mt-2">
                 <span class="fw-500">Platform</span>

@@ -18,7 +18,7 @@
 
 <nav class="navbar">
     <ul *ngIf="isLoggedIn; else showLogin">
-        <li class="navbar-logo">
+        <li class="navbar-logo" routerLink="/home">
             <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
         </li>
         <li class="navbar-toggle" (click)="toggleActive()"><i class="bi bi-list"></i></li>
@@ -34,7 +34,7 @@
     </ul>
     <ng-template #showLogin>
       <ul class="justify-content-space-between">
-        <li class="navbar-logo">
+        <li class="navbar-logo" routerLink="/home">
           <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
       </li>
         <li class="login-btn align-self-center py-1 flex-grow-0" (click)="login()">Login</li>

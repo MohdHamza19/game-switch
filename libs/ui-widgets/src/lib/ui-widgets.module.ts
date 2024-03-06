@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdvertCardComponent } from './components/advert-card/advert-card.component';
 import { AdvertCarouselComponent } from './components/advert-carousel/advert-carousel.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'ad', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forChild(routes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

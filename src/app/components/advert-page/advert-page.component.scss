@@ -19,11 +19,6 @@
     // padding-bottom: 6px;
 }
 
-h5.block__title {
-    position: relative;
-    display: inline-block;
-}
-
 .block__data{
     padding-left: 8px;
 }
@@ -36,8 +31,11 @@ h5.block__title {
     font-size: 14px;
 }
 
-.text--smaller{
-    padding-left: 4px !important;
+.text--light{
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 0px;
+    color: $color-text-light;
 }
 
 .bi-telephone + span{
@@ -51,18 +49,26 @@ h5.block__title {
     cursor: pointer;
 }
 
-h5.block__title::after {
+h6.block__title {
+    position: relative;
+    display: inline-block;
+}
+
+h6.block__title::after {
     content: "";
     position: absolute;
     background-color: $color-purple;
     width: 100%;
-    height: 3.5px;
-    bottom: -4px;
+    height: 4px;
+    bottom: -5px;
     left: 0;
+    clip-path: polygon(100% 0, 100% 0, 90% 100%, 0 100%, 0 100%, 0% 0%)
 }
 
-.text--smaller {
-    padding-left: 8px;
+.block__data{
+    span{
+        padding-left: 4px;
+    }
 }
 
 .container {
