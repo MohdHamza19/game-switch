@@ -4,8 +4,13 @@ import com.gameswitch.dto.AdvertAllDto;
 import com.gameswitch.entity.Advert;
 import com.gameswitch.service.AdvertService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -18,6 +23,11 @@ public class AdvertController {
 
   @GetMapping("/all")
   public List<AdvertAllDto> getAllAdvertsDto() {
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     return advertService.getAllAdvertsDto();
   }
 
