@@ -6,6 +6,10 @@ $header-height: 58.1px;
     align-items: center;
 }
 
+.pl-0 {
+    padding-left: 0rem !important;
+}
+
 .pl-1 {
     padding-left: 0.5rem !important;
 }
@@ -47,6 +51,10 @@ $header-height: 58.1px;
     flex-wrap: wrap;
 }
 
+.flex-1{
+    flex: 1;
+}
+
 .text--smaller {
     font-size: 14px;
     font-weight: 400;
@@ -75,6 +83,10 @@ $header-height: 58.1px;
 
 .align-self-fstart{
     align-self: flex-start;
+}
+
+.align-content-stretch{
+    align-content: stretch;
 }
 
 .flex-grow-0{

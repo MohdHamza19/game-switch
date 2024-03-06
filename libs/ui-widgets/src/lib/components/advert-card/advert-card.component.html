@@ -1,75 +1,19 @@
-<!-- <div class="card">
-    <div class="row m-0">
-        <div class="card__image col-2">
-            <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" />
-        </div>
-        <div class="col-10">
-            <div class="card__content">
-                <h3 class="card__title">Advert Title</h3>
-                <p class="card__description">Advert Description</p>
-                <div class="card__footer">
-                    <div class="card__footer--left">
-                        <span class="card__footer--left--price">Price</span>
-                        <span class="card__footer--left--location">Location</span>
-                    </div>
-                    <div class="card__footer--right">
-                        <span class="card__footer--right--platform">Platform</span>
-                        <span class="card__footer--right--date">Date</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- <div class="card">
-    <div class="card__image">
-        <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" />
-    </div>
-</div> -->
-<!-- 
-<div class="card__list">
-
-</div>
-<div class="card mt-2">
-    <div class="row m-0">
-        <div class="col-3 p-0">
-            <div class="card__image">
-                <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" />
-            </div>
-        </div>
-        <div class="col-9 align-self-center">
-            <div class="card__content">
-                <div class="column column-relative">
-                  <h3 class="">The Last Of Us 2</h3>
-                  <h6 class="p-0">HSR Layout • Bangalore</h6>
-                  <h6 class="p-0">Excellent - No scratches or marks</h6>
-                  <h5 class="mt-2 card__price">₹800</h5>
-                </div>
-                <div class="column column-end column-relative">
-                    <div class="card__btn mt-2">View</div>
-                </div>
-              </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="card__list row">
+<div class="card__list row" *ngIf="!isLoading; else loadingCards">
     <div class="col-6" *ngFor="let card of cards">
         <div class="card mt-3">
             <div class="row m-0">
-                <div class="col-5 p-0">
+                <div class="col-4 p-0 align-self-center">
                     <div class="card__image">
                         <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" />
                     </div>
                 </div>
-                <div class="col-7 align-self-center">
-                    <div class="card__content">
+                <div class="col-8 d-flex flex-1 align-content-stretch pl-0">
+                    <div class="card__content py-sm-2 py-xl-3 flex-1">
                         <div class="column column-relative">
                             <h5 class="card__title">{{ card.title }}</h5>
-                            <h6 class="p-0 card__location">{{ card.location }}</h6>
-                            <h6 class="p-0 card__condition">{{ card.condition }}</h6>
-                            <h5 class="mt-2 card__price">{{ card.price }}</h5>
+                            <p class="p-0 card__location">{{ card.location }}</p>
+                            <p class="p-0 card__condition">{{ card.condition }}</p>
+                            <p class="mt-2 card__price">{{ card.price }}</p>
                         </div>
                         <div class="column column-end column-relative">
                             <div class="card__btn mt-2" (click)="viewAd(card.id)">View</div>
@@ -80,3 +24,39 @@
         </div>
     </div>
 </div>
+
+<ng-template #loadingCards>
+    <div class="card__list row" #loadingCards>
+        <div class="col-6" *ngFor="let num of [].constructor(8)">
+            <div class="card mt-3">
+                <div class="row m-0">
+                    <div class="col-4 p-0 align-self-center">
+                        <div class="card__image">
+                            <div class="p-0 skeleton skeleton--image"></div>
+                        </div>
+                    </div>
+                    <div class="col-8 d-flex flex-1 align-content-stretch pl-0">
+                        <div class="card__content py-sm-2 py-xl-3 flex-1">
+                            <div class="column column-relative">
+                                <div>
+                                    <div class="skeleton skeleton-text skeleton--large"></div>
+                                    <div class="skeleton skeleton-text skeleton--large"></div>
+                                </div>
+                                <div>
+                                    <div class="skeleton skeleton-text"></div>
+                                    <div class="skeleton skeleton-text"></div>
+                                </div>
+                                <div>
+                                    <div class="skeleton skeleton-text"></div>
+                                </div>
+                            </div>
+                            <div class="column column-end column-relative">
+                                <!-- <div class="card__btn mt-2" (click)="viewAd(card.id)">View</div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
