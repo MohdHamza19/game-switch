@@ -4,15 +4,19 @@
             <div class="row m-0">
                 <div class="col-4 p-0 align-self-center">
                     <div class="card__image">
-                        <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" />
+                        <img class="p-0" src="../assets/images/tbd/haloinfinite.jpeg" alt="Advert Image" />
+                        <!-- <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" /> -->
                     </div>
                 </div>
                 <div class="col-8 d-flex flex-1 align-content-stretch pl-0">
                     <div class="card__content py-sm-2 py-xl-3 flex-1">
-                        <div class="column column-relative">
+                        <div class="column column-relative"  style="flex: 2;">
                             <h5 class="card__title">{{ card.title }}</h5>
                             <p class="p-0 card__location">{{ card.location }}</p>
-                            <p class="p-0 card__condition">{{ card.condition }}</p>
+                            <p class="p-0 card__condition">
+                                Condition: <br />
+                                {{ card.condition }}
+                            </p>
                             <p class="mt-2 card__price">{{ card.price }}</p>
                         </div>
                         <div class="column column-end column-relative">

@@ -133,6 +133,10 @@ $header-height: 58.1px;
     font-weight: 600 !important;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 // For small screens
 @media (max-width: 600px) {
     .text--h1 {

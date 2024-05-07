@@ -26,6 +26,7 @@ export class LoginComponent {
   @ViewChild('modal') modal!: ElementRef;
   @ViewChild('overlay') overlay!: ElementRef;
   showModal: boolean = false;
+  attemptLogin: boolean = false;
   @Input() isLogin: boolean = true;
   @Output() modalClose: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -79,8 +80,13 @@ export class LoginComponent {
       }
       this.closeModal();
     } else {
-      this.loginService.loginUser();
-      this.closeModal();
+      if(this.loginForm.controls.email.value && this.loginForm.controls.password.value){
+        this.loginService.loginUser();
+        this.closeModal();
+      } else {
+        this.attemptLogin = true;
+
+      }
     }
   }
 

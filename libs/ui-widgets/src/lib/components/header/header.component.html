@@ -23,18 +23,18 @@
         </li>
         <li class="navbar-toggle" (click)="toggleActive()"><i class="bi bi-list"></i></li>
         <li class="navbar-link" [ngClass]="{'active': isActive}">
-            <a href="#">Home</a>
+            <a routerLink="/">Home</a>
         </li>
         <li class="navbar-link" [ngClass]="{'active': isActive}">
-            <a href="#">Search</a>
+            <a routerLink="/home">Adverts</a>
         </li>
-        <li class="navbar-link" [ngClass]="{'active': isActive}">
-            <a href="#">Post</a>
+        <li class="navbar-link" [ngClass]="{'active': isActive}" >
+            <a routerLink="/post">Post</a>
         </li>
     </ul>
     <ng-template #showLogin>
       <ul class="justify-content-space-between">
-        <li class="navbar-logo" routerLink="/home">
+        <li class="navbar-logo" routerLink="/">
           <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
       </li>
         <li class="login-btn align-self-center py-1 flex-grow-0" (click)="login()">Login</li>

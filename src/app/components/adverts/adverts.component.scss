@@ -75,7 +75,6 @@
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    // margin-right: 18px;
     text-align: center;
 }
 
@@ -145,6 +144,8 @@
 .input--suggestions {
     visibility: hidden;
     z-index: 99;
+    overflow-y: scroll;
+    max-height: 200px;
 
     position: absolute;
     top: 37px;
@@ -166,16 +167,6 @@
     }
 }
 
-.list--pointer {
-    .input--suggestions {
-        cursor: pointer;
-    }
-
-    // .input--suggestions:hover{
-    //     background-color: $color-light-gray;
-    // }
-}
-
 .search__box {
     position: relative;
 
@@ -189,20 +180,6 @@
     }
 }
 
-// .search__box::after{
-//     content: "Enter at least 3 characters";
-//     cursor: pointer;
-//     position: absolute;
-//     bottom: -38px;
-//     padding-top: 9px;
-//     padding-left: 13px;
-//     left: 0px;
-//     font-weight: 300;
-//     font-style: italic;
-//     font-size: 0.9rem;
-//     width: 100%;
-//     min-height: 38px;
-//     background-color: rgb(33, 37, 41);
-//     border-radius: 0 0 8px 8px;
-//     z-index: 99;
-// }
+.form-control:focus{
+    box-shadow: none !important;
+}

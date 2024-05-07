@@ -1,22 +1,26 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdvertService {
 
-  constructor(private http: HttpClient) { }
+  private environmentUrl: string;
 
-  getAllAdverts(){
-    return this.http.get('http://localhost:8081/advert/all');
+  constructor(private http: HttpClient, @Inject('environment') environment: { production: boolean, baseUrl: string }) {
+    this.environmentUrl = environment.baseUrl;
   }
 
-  getAdvertById(id: number){
-    return this.http.get(`http://localhost:8081/advert/${id}`);
+  getAllAdverts() {
+    return this.http.get(`${this.environmentUrl}/advert/all`);
   }
 
-  getGameBySearch(input: string){
-    return this.http.get(`http://localhost:8081/games/ps4/${input}`);
+  getAdvertById(id: number) {
+    return this.http.get(`${this.environmentUrl}/advert/${id}`);
+  }
+
+  getGameBySearch(input: string) {
+    return this.http.get(`${this.environmentUrl}/games/ps4/${input}`);
   }
 }
