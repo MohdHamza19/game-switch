@@ -88,6 +88,8 @@ export class AdvertsComponent {
   }
 
   onInputBlur() {
-    this.search.nativeElement.classList.remove('search__box');
+    setTimeout(() => {
+      this.search.nativeElement.classList.remove('search__box');
+    }, 120);
   }
 }

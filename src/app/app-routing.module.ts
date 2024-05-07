@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AdvertsComponent } from './components/adverts/adverts.component';
 import { AdvertPageComponent } from './components/advert-page/advert-page.component';
+import { PostAdvertComponent } from './components/post-advert/post-advert.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: AdvertsComponent
+  },
+  {
+    path: 'post',
+    component: PostAdvertComponent
   },
   {
     path: 'ad/:id',

@@ -11,7 +11,7 @@ export class AdvertPageComponent {
   constructor() { }
 
   ngOnInit(){
-    this.card = history.state.data || null;
+    this.card = history?.state?.data || null;
     console.log(this.card);
     
   }

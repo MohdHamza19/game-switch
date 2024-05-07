@@ -1,8 +1,8 @@
 @import "../../../styles.scss";
 
 .block--dark {
-    height: 100vh;
     color: white;
+    min-height: 100vh;
 }
 
 .block__carousel {

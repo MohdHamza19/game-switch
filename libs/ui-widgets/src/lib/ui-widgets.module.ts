@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'ad', component: LoginComponent },
-  // add more routes as needed
 ];
 
 @NgModule({

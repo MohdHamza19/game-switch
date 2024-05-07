@@ -1,0 +1,45 @@
+<div class="block--dark">
+    <div>
+        <div class="container block--light-gray pt-2">
+            <header class="p-2">
+                <h2 class="header__title">Details</h2>
+                <form class="mt-1">
+                    <div class="form__title form--input">
+                        <label for="title">Title*</label><br>
+                        <input type="text" id="title"
+                            formcontrolname="title"
+                            class="form-control bg-dark text-light border-dark"
+                        >
+                    </div>
+                    <div class="form__description mt-1">
+                        <label for="description">Description*</label><br>
+                        <textarea id="description" formcontrolname="description" rows="3" class="form-control bg-dark text-light border-dark"></textarea>
+                    </div>
+                    <div class="form__location form--input mt-1">
+                        <label for="location">Location*</label><br>
+                        <input type="text" id="location"
+                            formcontrolname="location"
+                            class="form-control bg-dark text-light border-dark"
+                        >
+                    </div>
+                    <div class="form__condition form--input mt-1"><label for="condition">Condition*</label><br>
+                        <div class="input--wrapper" #conditionSelect>
+                            <input type="text" (focus)="onInputFocus()" (blur)="onInputBlur()" readonly class="form-control bg-dark text-light border-dark input--search cursor-pointer" [value]="selectedCondition">
+                            <span class="condition-arrow"><i class="bi bi-chevron-down"></i></span>
+                            <span class="input--conditions">
+                                <div class="cursor-pointer">
+                                    <!-- <div class="mb-2" (click)="selectCondition('Working')">Working</div>
+                                    <div class="mb-2" (click)="selectCondition('Good')">Good</div>
+                                    <div class="mb-2" (click)="selectCondition('Excellent')">Excellent</div> -->
+                                    <div *ngFor="let game of conditions">
+                                        <p class="mb-2" (click)="selectCondition(game)">{{ game }}</p>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </header>
+        </div>
+    </div>
+</div>

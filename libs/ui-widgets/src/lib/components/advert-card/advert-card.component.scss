@@ -9,12 +9,12 @@
 
 .card__image {
     padding: 10px;
-
+    text-align: center;
     img {
         border-radius: 8px;
         width: 100%;
-        max-height: 200px;
-        max-width: 200px;
+        max-height: 260px;
+        max-width: 180px;
     }
 }
 
@@ -84,6 +84,19 @@
     .card__title {
         font-size: 1.4rem !important;
         height: 52px;
+    }
+
+    .card__location {
+        font-size: 16px;
+        height: 48px;
+        margin: 0px;
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1439px) {
+    .card__title {
+        font-size: 1.4rem !important;
+        height: 50px;
     }
 
     .card__location {

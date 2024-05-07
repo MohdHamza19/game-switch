@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AdvertsComponent } from './components/adverts/adverts.component';
 import { AdvertPageComponent } from './components/advert-page/advert-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostAdvertComponent } from './components/post-advert/post-advert.component';
+import { environment } from './environments/environments';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     AdvertsComponent,
     AdvertPageComponent,
+    PostAdvertComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    { provide: 'environment', useValue: environment }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
