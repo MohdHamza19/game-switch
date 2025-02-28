@@ -83,6 +83,12 @@
     ;
 }
 
+.filter-btn {
+    &:hover {
+        background-color: darken($color-purple, 10%);
+    }
+}
+
 .custom-select {
     place-items: center;
     position: relative;
@@ -182,4 +188,115 @@
 
 .form-control:focus{
     box-shadow: none !important;
+}
+
+.adverts-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - $header-height);
+}
+
+.filters-section {
+  background: $color-light-gray;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  .filters-header {
+    cursor: pointer;
+    &:hover {
+      background: rgba(255,255,255,0.05);
+    }
+  }
+
+  .filters-body {
+    max-height: 500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+
+    &.show {
+      max-height: 0;
+    }
+  }
+}
+
+.search-box {
+  position: relative;
+  
+  .search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $color-light-gray;
+    border-radius: 0 0 8px 8px;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+
+    .suggestion-item {
+      padding: 8px 16px;
+      cursor: pointer;
+      
+      &:hover {
+        background: rgba(255,255,255,0.1);
+      }
+    }
+  }
+}
+
+.platform-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .chip {
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    &.active {
+      background: $color-purple;
+    }
+
+    i {
+      margin-right: 6px;
+    }
+  }
+}
+
+.results-section {
+  flex: 1;
+  background: #000;
+  padding: 20px;
+}
+
+// Responsive styles
+@media (min-width: 768px) {
+  .adverts-container {
+    flex-direction: row;
+  }
+
+  .filters-section {
+    width: 300px;
+    border-bottom: none;
+    border-right: 1px solid rgba(255,255,255,0.1);
+
+    .filters-header i {
+      display: none;
+    }
+
+    .filters-body {
+      max-height: none;
+      
+      &.show {
+        max-height: none;
+      }
+    }
+  }
 }

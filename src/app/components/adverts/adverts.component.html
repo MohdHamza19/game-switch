@@ -1,59 +1,64 @@
-<div class="row text--white m-0 search row-height">
-    <section class="col-3 block--light-gray search">
-        <div class="px-3 my-3">
-            <h5 class="search__title">
-                Find your <span class="text--purple">next</span> game
-            </h5>
-            <p class="fw-500 mb-2">Title</p>
-            <div class="d-flex">
-                <span class="d-flex px-3 align-items-center span-search-icon">
-                    <i class="bi bi-search"></i>
-                </span>
-                <div class="input--wrapper" #searchInput>
-                    <input type="text" (focus)="onInputFocus($event)" (input)="onInputFocus($event)" (blur)="onInputBlur()" placeholder="Search games" class="form-control bg-dark text-light border-dark input--search">
-                    <span class="input--suggestions">
-                        <div *ngIf="!loadingGames;else loadAnimation">
-                            <div *ngFor="let game of games">
-                                <p class="mb-2">{{ game.title }}</p>
-                            </div>
-                        </div>
-                        <ng-template #loadAnimation>
-                            <img src="assets/gifs/loading-animation.gif" alt="Loading...">
-                        </ng-template>
-                    </span>
-                </div>
-            </div>
-            <div class="platform__dropdown mt-2">
-                <span class="fw-500">Platform</span>
-                <div class="custom-select" #arrow>
-                    <select id="platform" name="platform">
-                        <option value="any">All</option>
-                        <option value="ps4">PlayStation</option>
-                        <option value="xbox">Xbox</option>
-                    </select>
-                    <span class="custom-arrow">
-                        <i class="bi bi-chevron-compact-down"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="location__dropdown mt-2">
-                <span class="fw-500">Location</span>
-                <div class="custom-select" #arrow>
-                    <select id="location" name="location">
-                        <option value="any">Any</option>
-                        <option value="xbox">Bangalore</option>
-                        <option value="ps4">Hyderabad</option>
-                    </select>
-                    <span class="custom-arrow">
-                        <i class="bi bi-chevron-compact-down" ></i>
-                    </span>
-                </div>
-            </div>
-            <div class="search__btn align-self-center mt-3">Search</div>
+<div class="adverts-container">
+  <!-- Filters Section -->
+  <div class="filters-section" [class.collapsed]="isFilterCollapsed">
+    <div class="filters-header d-flex justify-content-between align-items-center p-3" (click)="toggleFilters()">
+      <h5 class="m-0">Filters</h5>
+      <i class="bi" [class.bi-chevron-up]="!isFilterCollapsed" [class.bi-chevron-down]="isFilterCollapsed"></i>
+    </div>
+    
+    <div class="filters-body" [class.show]="!isFilterCollapsed">
+      <div class="search-box p-3">
+      <h5>Find your <span class="text--purple">next</span> game</h5>
+        <label class="form-label">Search Games</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-search"></i></span>
+          <input type="text" class="form-control" 
+                 (focus)="onInputFocus($event)" 
+                 (input)="onInputFocus($event)" 
+                 (blur)="onInputBlur()"
+                 placeholder="Enter game title...">
         </div>
-    </section>
-    <section class="col-9 block--dark results" *ngIf="cards">
-        <widget-advert-card [cards]="cards" (idEmitter)="viewAdvert($event)"></widget-advert-card>
-    </section>
+        <div class="search-suggestions" *ngIf="games && games.length > 0">
+          <div class="spinner-border text-light" *ngIf="loadingGames"></div>
+          <div class="suggestion-item" *ngFor="let game of games">
+            {{ game.title }}
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group p-3">
+        <label class="form-label">Platform</label>
+        <div class="platform-chips">
+          <div class="chip" *ngFor="let platform of platforms" 
+               [class.active]="selectedPlatform === platform.value"
+               (click)="selectPlatform(platform.value)">
+            <i [class]="platform.icon"></i>
+            {{ platform.name }}
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group p-3">
+        <label class="form-label">Location</label>
+        <select class="form-select">
+          <option value="">Any Location</option>
+          <option *ngFor="let location of locations" [value]="location">
+            {{ location }}
+          </option>
+        </select>
+      </div>
+
+      <div class="p-3">
+        <button class="btn text--white filter-btn background--purple w-100" (click)="applyFilters()">
+          Apply Filters
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div class="results-section">
+    <widget-advert-card [cards]="cards" (idEmitter)="viewAdvert($event)"></widget-advert-card>
+  </div>
 </div>
 <widget-login-modal></widget-login-modal>

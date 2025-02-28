@@ -17,6 +17,17 @@ export class AdvertsComponent {
   inputSubject: Subject<string> = new Subject();
   loadingGames: boolean = false;
 
+  isFilterCollapsed = false;
+  selectedPlatform: string = 'all';
+  
+  platforms = [
+    { name: 'All', value: 'all', icon: 'bi bi-controller' },
+    { name: 'PlayStation', value: 'ps', icon: 'bi bi-playstation' },
+    { name: 'Xbox', value: 'xbox', icon: 'bi bi-xbox' }
+  ];
+  
+  locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Delhi', 'Chennai'];
+
   constructor(
     private renderer: Renderer2,
     private router: Router,
@@ -94,5 +105,18 @@ export class AdvertsComponent {
     setTimeout(() => {
       this.search.nativeElement.classList.remove('search__box');
     }, 120);
+  }
+
+  toggleFilters() {
+    this.isFilterCollapsed = !this.isFilterCollapsed;
+  }
+
+  selectPlatform(platform: string) {
+    this.selectedPlatform = platform;
+  }
+
+  applyFilters() {
+    // Implement filter logic
+    console.log('Applying filters');
   }
 }
