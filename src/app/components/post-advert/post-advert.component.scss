@@ -1,7 +1,7 @@
 @import "../../../styles.scss";
 
 .block--dark {
-    height: 100vh;
+    // height: calc(100vh - 58.06px);
     color: white;
 }
 
@@ -11,18 +11,20 @@
 }
 
 .form--input {
-    label{
+    label {
         font-size: 1.2rem;
         font-weight: 400;
     }
+
     max-width: 400px;
 }
 
 .form__description {
-    label{
+    label {
         font-size: 1.2rem;
         font-weight: 400;
     }
+
     textarea {
         max-width: 400px;
         height: 150px;
@@ -34,6 +36,7 @@
     background: $color-light-gray;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    border-radius: 30px;
 }
 
 h2.header__title {
@@ -53,11 +56,11 @@ h2.header__title::after {
     clip-path: polygon(100% 0, 100% 0, 90% 100%, 0 100%, 0 100%, 0% 0%)
 }
 
-.input--wrapper{
+.input--wrapper {
     position: relative;
 }
 
-.condition-arrow{
+.condition-arrow {
     position: absolute;
     right: 0px;
     top: 0px;
@@ -97,9 +100,15 @@ h2.header__title::after {
         margin-left: -8px;
         margin-top: -4px;
     }
+
+    div {
+        :hover {
+            color: $color-purple;
+        }
+    }
 }
 
-#description{
+#description {
     max-width: 400px;
 }
 
@@ -116,14 +125,37 @@ h2.header__title::after {
         border-bottom-right-radius: 0;
     }
 
-    >.condition-arrow{
+    >.condition-arrow {
         border-bottom-right-radius: 0rem;
     }
 }
 
-.form-control:focus{
+.form-control:focus {
     box-shadow: none !important;
 }
+
+.btn-purple {
+    background-color: $color-purple;
+    color: white;
+    padding: 8px 2rem !important;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-purple:hover {
+    background-color: rgb(33, 37, 41);
+    ;
+}
+
+// .btn-purple:hover,
+// .btn-purple:focus {
+//     background-color: darkpurple;
+//     border-color: darkpurple;
+//     color: white;
+// }
+
 // @media (min-width: 769px) and (max-width: 1024px){
 //     .container {
 //         max-width: 900px;
@@ -131,7 +163,7 @@ h2.header__title::after {
 //     }
 // }
 
-@media (max-width: 425px){
+@media (max-width: 425px) {
     .container {
         max-width: 80vw;
         margin: 0 auto;

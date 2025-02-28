@@ -26,6 +26,9 @@ export class AdvertsComponent {
   ngOnInit() {
     this.advertService.getAllAdverts().subscribe((data: any) => {
       this.cards = data;
+
+      console.log(this.cards);
+      
     });
 
     this.inputSubject.pipe(

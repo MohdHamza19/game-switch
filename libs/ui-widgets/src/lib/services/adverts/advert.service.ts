@@ -23,4 +23,8 @@ export class AdvertService {
   getGameBySearch(input: string) {
     return this.http.get(`${this.environmentUrl}/games/ps4/${input}`);
   }
+
+  postAdvert(advert: any) {
+    return this.http.post(`${this.environmentUrl}/advert/post`, advert);
+  }
 }

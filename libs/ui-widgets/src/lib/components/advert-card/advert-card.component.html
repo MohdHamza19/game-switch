@@ -1,66 +1,38 @@
-<div class="card__list row" *ngIf="!isLoading; else loadingCards">
-    <div class="col-6" *ngFor="let card of cards">
-        <div class="card mt-3">
-            <div class="row m-0">
-                <div class="col-4 p-0 align-self-center">
-                    <div class="card__image">
-                        <img class="p-0" src="../assets/images/tbd/haloinfinite.jpeg" alt="Advert Image" />
-                        <!-- <img class="p-0" src="https://via.placeholder.com/150" alt="Advert Image" /> -->
-                    </div>
+<div class="container-fluid p-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+        <div class="col" *ngFor="let card of cards()">
+            <div class="card h-100" (click)="viewAd(card.id)">
+                <div class="card-img-wrapper">
+                    <img [src]="card.image" [alt]="card.title">
                 </div>
-                <div class="col-8 d-flex flex-1 align-content-stretch pl-0">
-                    <div class="card__content py-sm-2 py-xl-3 flex-1">
-                        <div class="column column-relative"  style="flex: 2;">
-                            <h5 class="card__title">{{ card.title }}</h5>
-                            <p class="p-0 card__location">{{ card.location }}</p>
-                            <p class="p-0 card__condition">
-                                Condition: <br />
-                                {{ card.condition }}
-                            </p>
-                            <p class="mt-2 card__price">{{ card.price }}</p>
-                        </div>
-                        <div class="column column-end column-relative">
-                            <div class="card__btn mt-2" (click)="viewAd(card.id)">View</div>
-                        </div>
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{card.title}}</h5>
+                    <p class="card-text mb-2"><i class="bi bi-geo-alt"></i> {{card.location}}</p>
+                    <p class="card-text"><small>Condition: {{card.condition}}</small></p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center">
+                        <span class="price"></span>
+                        <button class="btn view-btn">View</button>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Loading skeleton -->
+        <ng-container *ngIf="isLoading()">
+            <div class="col" *ngFor="let i of [1,2,3,4,5,6,7,8]">
+                <div class="card h-100">
+                    <div class="card-img-wrapper skeleton"></div>
+                    <div class="card-body">
+                        <div class="skeleton skeleton-text skeleton--large"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <div></div>
+                            <div class="skeleton skeleton-text w-25"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
     </div>
 </div>
-
-<ng-template #loadingCards>
-    <div class="card__list row" #loadingCards>
-        <div class="col-6" *ngFor="let num of [].constructor(8)">
-            <div class="card mt-3">
-                <div class="row m-0">
-                    <div class="col-4 p-0 align-self-center">
-                        <div class="card__image">
-                            <div class="p-0 skeleton skeleton--image"></div>
-                        </div>
-                    </div>
-                    <div class="col-8 d-flex flex-1 align-content-stretch pl-0">
-                        <div class="card__content py-sm-2 py-xl-3 flex-1">
-                            <div class="column column-relative">
-                                <div>
-                                    <div class="skeleton skeleton-text skeleton--large"></div>
-                                    <div class="skeleton skeleton-text skeleton--large"></div>
-                                </div>
-                                <div>
-                                    <div class="skeleton skeleton-text"></div>
-                                    <div class="skeleton skeleton-text"></div>
-                                </div>
-                                <div>
-                                    <div class="skeleton skeleton-text"></div>
-                                </div>
-                            </div>
-                            <div class="column column-end column-relative">
-                                <!-- <div class="card__btn mt-2" (click)="viewAd(card.id)">View</div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</ng-template>
