@@ -7,23 +7,21 @@ import java.util.Objects;
 
 @Data
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class AdvertAllDto {
   private int id;
   private String title;
-  private Advert.Condition condition;
+  private String image;
+  private String description;
   private String location;
-
-  //equals and hashcode
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    AdvertAllDto that = (AdvertAllDto) o;
-    return id == that.id && title.equals(that.title);
-  }
+  private Advert.Platform platform;
+  private Advert.Condition condition;
+  private Advert.Sale openToSale;
+  private Advert.BoxInclude includesBox;
+  private String playableOn;
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, title);
+    return Objects.hash(title);
   }
 }

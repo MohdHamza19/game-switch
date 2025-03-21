@@ -8,8 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Getter
-@Setter
 @Table(name = "ps4_games")
 public class GamesPS4 {
 

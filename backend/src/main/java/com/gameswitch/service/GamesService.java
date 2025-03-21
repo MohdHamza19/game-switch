@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class GamesService {
@@ -20,7 +21,9 @@ public class GamesService {
 
   Pageable pageable = PageRequest.of(0, 100);
   public List<GamesPS4> getAllPs4GamesByText(String searchText) {
-    return gamesRepository.findAllGamesBySearchText(searchText, pageable);
+    List<GamesPS4> games = gamesRepository.findAllGamesBySearchText(searchText, pageable);
+//    games.stream().collect(Collectors.partitioningBy(g -> g.getGameName().contains(searchText));
+    return games;
   }
 
 //  public List<AdvertAllDto> getAllAdvertsDto() {

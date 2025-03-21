@@ -1,17 +1,12 @@
 package com.gameswitch.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
 @Data
-@Getter
-@Setter
 @Table(name = "advert")
 public class Advert {
   @Id
@@ -19,11 +14,15 @@ public class Advert {
   @Column(name = "id")
   private int id;
 
-  @Column(name = "user_id", nullable = false)
-  private int userId;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "user_id", nullable = false)
+  private User user;
 
   @Column(name = "title", nullable = false, length = 30)
   private String title;
+
+  @Column(name = "image", columnDefinition = "TEXT", nullable = true)
+  private String image;
 
   @Column(name = "description", nullable = false, length = 500)
   private String description;
@@ -36,7 +35,7 @@ public class Advert {
   private Platform platform;
 
   @Enumerated(EnumType.STRING)
-  @Column(name = "condition", nullable = false)
+  @Column(name = "disk_condition", nullable = false)
   private Condition condition;
 
   @Enumerated(EnumType.STRING)
@@ -50,9 +49,6 @@ public class Advert {
   @Column(name = "playable_on", nullable = false, length = 15)
   private String playableOn;
 
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "user_id", referencedColumnName = "id", insertable = false, updatable = false)
-  private User user;
   public enum Platform {
     PlayStation,
     Xbox
