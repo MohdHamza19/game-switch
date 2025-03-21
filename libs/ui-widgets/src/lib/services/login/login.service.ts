@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private loginStateSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loginStateSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
   public loginState$ = this.loginStateSubject.asObservable();
 
   private loginModalStateSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);

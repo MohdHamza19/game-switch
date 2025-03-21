@@ -1,91 +1,81 @@
-<div class="block--dark">
-    <div class="container">
-        <header>
-            <div class="row pt-3">
-                <div class="col-9">
-                    <section class="block__carousel">
-                        <widget-advert-carousel></widget-advert-carousel>
-                    </section>
-                    <section class="block__details mt-3">
-                        <h3 class="m-0 p-2">
-                            {{card.title}} (Pre-owned)
-                        </h3>
-                        <h6 class="m-2 mb-3 mb-0 mt-0 block__title">
-                            Details
-                        </h6>
-                        <div class="pb-2">
-                            <div class="row">
-                                <div class="col-2">
-                                    <p class="text--light pl-1">Platform</p>
-                                </div>
-                                <div class="col-4">
-                                    <p class="text--smaller">{{card.platform}}</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text--light pl-1">Includes box</p>
-                                </div>
-                                <div class="col-4">
-                                    <p class="text--smaller">{{card.includesBox}}</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text--light pl-1">Open to sale</p>
-                                </div>
-                                <div class="col-4">
-                                    <p class="text--smaller">{{card.openToSale}}</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text--light pl-1">Playable on</p>
-                                </div>
-                                <div class="col-4">
-                                    <p class="text--smaller">{{card.playableOn}}</p>
-                                </div>
-                                <div class="col-2">
-                                    <p class="text--light pl-1">Condition</p>
-                                </div>
-                                <div class="col-4">
-                                    <p class="text--smaller">{{card.condition}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="block__details my-3 p-2">
-                        <h6 class="mb-3 mb-0 mt-0 block__title">
-                            Description
-                        </h6>
-                        <div class="pb-2">
-                            {{card.description}}
-                        </div>
-                    </section>
-                </div>
-                <div class="col-3">
-                    <div class="block__info p-2">
-                        <h6 class="m-2 mb-3 mb-0 mt-0 block__title">
-                            Posted By
-                        </h6>
-                        <br>
-                        <div class="block__user">
-                            <i class="bi bi-person icon-size"></i> User9876
-                            <br>
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <i class="bi bi-telephone icon-size"></i><span class="mb-0">97XXXXXXXX</span>
-                                </div>
-                                <span class="show--number">Show number</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block__info p-2 mt-3">
-                        <h6 class="block__data">
-                            <i class="bi bi-map icon-size"></i> HSR layout • <i class="bi bi-geo-alt-fill icon-size"></i> Bangalore
-                        </h6>
-                        <div class="block__data">
-                            <i class="bi bi-calendar-event"></i><span class="text--smaller">21/02/2024</span>
-                        </div>
-                    </div>
-                </div>
-
+<div class="advert-page">
+  <div class="container py-4">
+    <ng-container *ngIf="!loading; else loadingTpl">
+      <ng-container *ngIf="!error; else errorTpl">
+        <div class="row g-4">
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <div class="gallery-wrapper">
+              <widget-advert-carousel></widget-advert-carousel>
             </div>
-        </header>
-    </div>
 
+            <div class="content-card mt-4">
+              <div class="d-flex justify-content-between align-items-start">
+                <h1 class="game-title">{{card.title}}</h1>
+              </div>
+              
+              <div class="specs-grid">
+                <div class="spec-item" *ngFor="let spec of [
+                  {icon: 'controller', label: 'Platform', value: card.platform},
+                  {icon: 'box', label: 'Box Included', value: card.includesBox},
+                  {icon: 'tag', label: 'For Sale', value: card.openToSale},
+                  {icon: 'nintendo-switch', label: 'Compatible', value: card.playableOn},
+                  {icon: 'patch-check', label: 'Condition', value: card.condition}
+                ]">
+                  <i class="bi bi-{{spec.icon}}"></i>
+                  <div>
+                    <span class="label">{{spec.label}}</span>
+                    <span class="value">{{spec.value}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content-card mt-4">
+              <h2>Description</h2>
+              <p class="description">{{card.description}}</p>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <div class="seller-card">
+              <div class="seller-info">
+                <div class="avatar">
+                  <i class="bi bi-person"></i>
+                </div>
+                <div>
+                  <h3>{{card.sellerName || 'User9876'}}</h3>
+                  <span class="member-since">Member since {{formatDate(card.joinDate || '2024-01-01')}}</span>
+                </div>
+              </div>
+
+              <button class="contact-btn" (click)="togglePhone()">
+                <i class="bi bi-telephone"></i>
+                {{isPhoneVisible ? card.phone || '9876543210' : 'Show Contact'}}
+              </button>
+
+              <div class="location-info">
+                <div><i class="bi bi-geo-alt"></i> {{card.location}}</div>
+                <div><i class="bi bi-calendar3"></i> Posted {{formatDate(card.date)}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
 </div>
+
+<ng-template #loadingTpl>
+  <div class="loading-state">
+    <div class="spinner-border text-purple"></div>
+  </div>
+</ng-template>
+
+<ng-template #errorTpl>
+  <div class="error-state">
+    <i class="bi bi-exclamation-circle"></i>
+    <p>{{error}}</p>
+  </div>
+</ng-template>

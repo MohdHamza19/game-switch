@@ -10,6 +10,7 @@ import { AdvertPageComponent } from './components/advert-page/advert-page.compon
 import { HttpClientModule } from '@angular/common/http';
 import { PostAdvertComponent } from './components/post-advert/post-advert.component';
 import { environment } from './environments/environments';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { environment } from './environments/environments';
     BrowserModule,
     AppRoutingModule,
     UiWidgetsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

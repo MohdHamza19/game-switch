@@ -2,6 +2,7 @@ import { Component, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren } 
 import { Router } from '@angular/router';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { AdvertService } from '@ui-widgets/services'
+import { title } from 'process';
 
 @Component({
   selector: 'app-adverts',
@@ -18,12 +19,15 @@ export class AdvertsComponent {
   loadingGames: boolean = false;
 
   isFilterCollapsed = false;
-  selectedPlatform: string = 'all';
+  isSearchInputFocused = false;
+  selectedPlatform: string = '';
+  searchInput: string = '';
+  selectedLocation: string = '';
   
   platforms = [
-    { name: 'All', value: 'all', icon: 'bi bi-controller' },
-    { name: 'PlayStation', value: 'ps', icon: 'bi bi-playstation' },
-    { name: 'Xbox', value: 'xbox', icon: 'bi bi-xbox' }
+    { name: 'All', value: '', icon: 'bi bi-controller' },
+    { name: 'PlayStation', value: 'PlayStation', icon: 'bi bi-playstation' },
+    { name: 'Xbox', value: 'Xbox', icon: 'bi bi-xbox' }
   ];
   
   locations = ['Bangalore', 'Hyderabad', 'Mumbai', 'Delhi', 'Chennai'];
@@ -88,35 +92,59 @@ export class AdvertsComponent {
   }
 
   onInputFocus(event: any) {
+    this.isSearchInputFocused = true;
     if (event.target.value.length >= 1 && event.target.value.length <= 5) {
       this.loadingGames = false;
       this.games = [{ title: "Enter at least 5 characters" }];
-      this.search.nativeElement.classList.add('search__box');
     } else if (event.target.value.length > 5) {
       this.loadingGames = true;
       this.games = [];
       this.inputSubject.next(event.target.value);
-      this.search.nativeElement.classList.add('search__box');
-      this.search.nativeElement.classList.add('list--pointer');
     }
   }
 
   onInputBlur() {
     setTimeout(() => {
-      this.search.nativeElement.classList.remove('search__box');
+      this.isSearchInputFocused = false;
     }, 120);
   }
 
   toggleFilters() {
-    this.isFilterCollapsed = !this.isFilterCollapsed;
+    if (window.innerWidth < 768) {
+      this.isFilterCollapsed = !this.isFilterCollapsed;
+    }    
   }
 
   selectPlatform(platform: string) {
     this.selectedPlatform = platform;
   }
 
+  selectLocation(location: string) {
+    this.selectedLocation = location;
+    console.log('Selected location:', this.selectedLocation);
+  }
+
   applyFilters() {
-    // Implement filter logic
-    console.log('Applying filters');
+    const filters = {
+      title: this.searchInput,
+      platform: this.selectedPlatform,
+      location: this.selectedLocation,
+    };
+    this.advertService.filterAdverts(filters).subscribe({
+      next: (data: any) => {
+        this.cards = data;
+        console.log('Filtered results:', this.cards);
+      },
+      error: (error) => {
+        console.error('Error filtering adverts:', error);
+      }
+    });
+  }
+
+  selectGame(game: any) {
+    if(game.title !== "No games found" && game.title !== "Enter at least 5 characters") {
+      this.games = [];
+      this.searchInput = game.title;
+    }
   }
 }

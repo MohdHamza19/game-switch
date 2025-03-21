@@ -1,103 +1,78 @@
-<div class="block--dark pt-4">
-    <div>
-        <div class="container block--light-gray pt-2 pb-2">
-            <header class="p-2">
-                <h2 class="header__title">Details</h2>
-                <form class="mt-1" [formGroup]="advertForm" (ngSubmit)="onSubmit()">
-                    <div class="form__title form--input">
-                        <label for="title">Title*</label><br>
-                        <div class="d-flex align-items-center">
-                            <input type="text" id="title" formControlName="title"
-                                class="form-control bg-dark text-light border-dark"><ng-container *ngIf="showError && advertForm.controls['title'].invalid">
-                                <i class="bi bi-exclamation-circle pl-2 text-danger"></i>
-                            </ng-container>
-                        </div>
-                        <!-- <div *ngIf="showError && advertForm.controls['title'].invalid" class="error-message">
-                        Title is required.
-                      </div> -->
+<div class="block--dark">
+    <div class="container">
+        <div class="block--light-gray">
+            <header>
+                <h2 class="header__title">Post Your Game</h2>
+                <form [formGroup]="advertForm" (ngSubmit)="onSubmit()">
+                    <div class="form--input">
+                        <label for="title">Game Title*</label>
+                        <input type="text" id="title" formControlName="title" 
+                            placeholder="Enter the game title"
+                            class="form-control bg-dark text-light border-dark">
                     </div>
-                    <div class="form__description form--input mt-1">
-                        <label for="description">Description*</label><br>
-                        <div class="d-flex align-items-center">
-                            <textarea id="description" formControlName="description" rows="3"
-                                class="form-control bg-dark text-light border-dark"></textarea><ng-container
-                                *ngIf="showError && advertForm.controls['description'].invalid">
-                                <i class="bi bi-exclamation-circle pl-2 text-danger"></i>
-                            </ng-container>
-                        </div>
-                        <!-- <div *ngIf="showError && advertForm.controls['description'].invalid" class="error-message">
-                        Description is required.
-                      </div> -->
+
+                    <div class="form__description form--input">
+                        <label for="description">Description*</label>
+                        <textarea id="description" formControlName="description" 
+                            placeholder="Describe the condition, features and other details of your game"
+                            class="form-control bg-dark text-light border-dark"></textarea>
                     </div>
-                    <div class="form__location form--input mt-1">
-                        <label for="location">Location*</label><br>
-                        <div class="d-flex align-items-center">
-                            <input type="text" id="location" formControlName="location"
-                                class="form-control bg-dark text-light border-dark"><ng-container *ngIf="showError && advertForm.controls['location'].invalid">
-                                <i class="bi bi-exclamation-circle pl-2 text-danger"></i>
-                            </ng-container>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form--input">
+                                <label for="location">City*</label>
+                                <input type="text" id="location" formControlName="location"
+                                    placeholder="Enter your city"
+                                    class="form-control bg-dark text-light border-dark">
+                            </div>
                         </div>
-                        <!-- <div *ngIf="showError && advertForm.controls['location'].invalid" class="error-message">
-                        Location is required.
-                      </div> -->
-                    </div>
-                    <div class="form__location form--input mt-1">
-                        <label for="area">Area*</label><br>
-                        <div class="d-flex align-items-center">
-                            <input type="text" id="area" formControlName="area"
-                                class="form-control bg-dark text-light border-dark"><ng-container *ngIf="showError && advertForm.controls['area'].invalid">
-                                <i class="bi bi-exclamation-circle pl-2 text-danger"></i>
-                            </ng-container>
-                        </div>
-                        <!-- <div *ngIf="showError && advertForm.controls['area'].invalid" class="error-message">
-                        Area is required.
-                      </div> -->
-                    </div>
-                    <!-- <div class="form__condition form--input mt-1"><label for="condition">Condition*</label><br> 
-                        <div class="input--wrapper" #conditionSelect>
-                            <input type="text" (focus)="onInputFocus()" (blur)="onInputBlur()" readonly class="form-control bg-dark text-light border-dark input--search cursor-pointer" [value]="selectedCondition">
-                            <span class="condition-arrow"><i class="bi bi-chevron-down"></i></span>
-                            <span class="input--conditions">
-                                <div class="cursor-pointer">
-                                    comment<div class="mb-2" (click)="selectCondition('Working')">Working</div>
-                                    <div class="mb-2" (click)="selectCondition('Good')">Good</div>
-                                    <div class="mb-2" (click)="selectCondition('Excellent')">Excellent</div>eEND
-                                    <div *ngFor="let game of conditions">
-                                        <p class="mb-2" (click)="selectCondition(game)">{{ game }}</p>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                    </div>-->
-                    <div *ngFor="let element of ['condition', 'platform', 'box', 'model', 'sale']">
-                        <div class="form__condition form--input mt-1">
-                            <label for="{{ element }}">
-                                {{ element === 'box' ? 'Includes box' : (element === 'sale' ? 'Open to sale' : (element
-                                | titlecase)) }}*
-                            </label><br>
-                            <div class="input--wrapper" #selectElement [attr.id]="element">
-                                <input type="text" (focus)="onInputFocus(element)" (blur)="onInputBlur(element)"
-                                    readonly
-                                    class="form-control bg-dark text-light border-dark input--search cursor-pointer"
-                                    [value]="dropdownOptions[element] || 'Select'">
-                                <span class="condition-arrow"><i class="bi bi-chevron-down"></i></span>
-                                <span class="input--conditions">
-                                    <div class="cursor-pointer">
-                                        <div *ngFor="let options of this[element]">
-                                            <p class="mb-2" (click)="selectCondition(element, options)">{{ options }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </span>
+                        <div class="col-md-6">
+                            <div class="form--input">
+                                <label for="area">Area*</label>
+                                <input type="text" id="area" formControlName="area"
+                                    placeholder="Enter your area"
+                                    class="form-control bg-dark text-light border-dark">
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex mt-3 align-items-center">
-                        <button type="submit" class="btn btn-purple">Post</button>
-                        <ng-container *ngIf="showError">
-                            <i class="bi bi-exclamation-circle pl-2 text-danger"></i> <span class="pl-1 text-danger">Please fill all the
-                                fields</span>
-                        </ng-container>
+
+                    <!-- Dropdown sections -->
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let element of ['platform', 'model', 'condition', 'box', 'sale']">
+                            <div class="form--input">
+                                <label for="{{ element }}">
+                                    {{ element === 'box' ? 'Box Included?' : 
+                                       element === 'sale' ? 'For Sale?' : 
+                                       (element | titlecase) }}*
+                                </label>
+                                <div class="input--wrapper" #selectElement [attr.id]="element">
+                                    <input type="text" (focus)="onInputFocus(element)" 
+                                           (blur)="onInputBlur(element)"
+                                           readonly
+                                           [placeholder]="'Select ' + (element | titlecase)"
+                                           class="form-control bg-dark text-light border-dark input--search cursor-pointer"
+                                           [value]="dropdownOptions[element]">
+                                    <span class="condition-arrow"><i class="bi bi-chevron-down"></i></span>
+                                    <span class="input--conditions">
+                                        <div class="cursor-pointer">
+                                            <p *ngFor="let option of this[element]" 
+                                               (click)="selectCondition(element, option)">
+                                                {{ option }}
+                                            </p>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap mt-4 align-items-center">
+                        <button type="submit" class="btn btn-purple">Post Advertisement</button>
+                        <div class="error-indicator" *ngIf="showError">
+                            <i class="bi bi-exclamation-circle"></i>
+                            <span class="ml-2">Please fill all required fields</span>
+                        </div>
                     </div>
                 </form>
             </header>

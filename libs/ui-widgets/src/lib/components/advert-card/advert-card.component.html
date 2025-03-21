@@ -3,7 +3,7 @@
         <div class="col" *ngFor="let card of cards()">
             <div class="card h-100" (click)="viewAd(card.id)">
                 <div class="card-img-wrapper">
-                    <img [src]="card.image" [alt]="card.title">
+                    <img [src]="getImageUrl(card.image)" [alt]="card.title">
                 </div>
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{card.title}}</h5>

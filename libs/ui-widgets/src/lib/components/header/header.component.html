@@ -1,43 +1,28 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
-        Navbar
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home</a>
-        <a class="nav-item nav-link" href="#">Features</a>
-        <a class="nav-item nav-link" href="#">Pricing</a>
-        <a class="nav-item nav-link disabled" href="#">Disabled</a>
-      </div>
-    </div>
-  </nav> -->
-
 <nav class="navbar">
-    <ul *ngIf="isLoggedIn; else showLogin">
-        <li class="navbar-logo" routerLink="/home">
-            <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
+  <ul>
+    <li class="navbar-logo" routerLink="/">
+      <img src="assets/images/GameSwitch.png" alt="GameSwitch Logo" />
+    </li>
+    <ng-container *ngIf="isLoggedIn">
+      <ul class="navbar-list">
+        <li class="navbar-toggle" (click)="toggleActive()">
+          <i class="bi bi-list"></i>
         </li>
-        <li class="navbar-toggle" (click)="toggleActive()"><i class="bi bi-list"></i></li>
-        <li class="navbar-link" [ngClass]="{'active': isActive}">
+        <ng-container id="navbarToggleExternalContent">
+          <li class="navbar-link" [ngClass]="{ active: isActive }">
             <a routerLink="/">Home</a>
-        </li>
-        <li class="navbar-link" [ngClass]="{'active': isActive}">
+          </li>
+          <li class="navbar-link" [ngClass]="{ active: isActive }">
             <a routerLink="/home">Adverts</a>
-        </li>
-        <li class="navbar-link" [ngClass]="{'active': isActive}" >
+          </li>
+          <li class="navbar-link" [ngClass]="{ active: isActive }">
             <a routerLink="/post">Post</a>
-        </li>
-    </ul>
-    <ng-template #showLogin>
-      <ul class="justify-content-space-between">
-        <li class="navbar-logo" routerLink="/">
-          <img src="assets/images/GameSwitch.png" class="responsive-logo-image" alt="GameSwitch Logo">
-      </li>
-        <li class="login-btn align-self-center py-1 flex-grow-0" (click)="login()">Login</li>
+          </li>
+        </ng-container>
       </ul>
-    </ng-template>
+    </ng-container>
+    <li class="login-icon" (click)="login()">
+      <i class="bi bi-person-circle"></i>
+    </li>
+  </ul>
 </nav>

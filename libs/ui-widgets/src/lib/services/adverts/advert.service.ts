@@ -27,4 +27,8 @@ export class AdvertService {
   postAdvert(advert: any) {
     return this.http.post(`${this.environmentUrl}/advert/post`, advert);
   }
+
+  filterAdverts(filters: any) {
+    return this.http.post(`${this.environmentUrl}/advert/filter`, filters);
+  }
 }
